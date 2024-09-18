@@ -108,6 +108,7 @@ module.exports = {
         'brand-primaryBlue': '#0469ff',
         'brand-primaryPurple': '#7000ff',
         'brand-dark': '#030014',
+        'brand-white': '#e2dbe0',
       },
       borderRadius: {
         lg: "var(--radius)",
