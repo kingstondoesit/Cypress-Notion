@@ -1,6 +1,6 @@
 import React from 'react';
 
-const HomePageLayout = ({ children }: { children: React.ReactNode }) => {
+export default function HomePageLayout ({ children }: { children: React.ReactNode }) {
   return (
     <main>
       {/* <Header /> */}
@@ -8,5 +8,3 @@ const HomePageLayout = ({ children }: { children: React.ReactNode }) => {
     </main>
   );
 };
-
-export default HomePageLayout;

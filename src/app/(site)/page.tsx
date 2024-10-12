@@ -3,28 +3,23 @@ import { TitleSection } from '../../components/landing-page/title-section';
 import { Button } from '../../components/ui/button';
 import Image from 'next/image';
 import Banner from '../../../public/appBanner.png';
+import Cal from '../../../public/cal.png';
 import {
   CLIENTS,
   PRICING_CARDS,
   PRICING_PLANS,
   USERS,
 } from '../../lib/constants';
-
-// const client1 = CLIENTS[0].logo;
-// const client2 = CLIENTS[1].logo;
-// const client3 = CLIENTS[2].logo;
-// const client4 = CLIENTS[3].logo;
-// const client5 = CLIENTS[4].logo;
-
-{
-  /* <ul>
-<li><Image src={client1} alt='client1' /></li>
-<li><Image src={client2} alt='client1' /></li>
-<li><Image src={client3} alt='client1' /></li>
-<li><Image src={client4} alt='client1' /></li>
-<li><Image src={client5} alt='client1' /></li>
-</ul>  */
-}
+import { randomUUID } from 'crypto';
+import { twMerge } from 'tailwind-merge';
+import clsx from 'clsx';
+import CustomCard from '../../components/landing-page/custom-card';
+import {
+  Avatar,
+  AvatarImage,
+  AvatarFallback,
+} from '../../components/ui/avatar';
+import { CardTitle, CardDescription } from '../../components/ui/card';
 
 const HomePage = () => {
   return (
@@ -119,7 +114,7 @@ const HomePage = () => {
           before:z-10
           before:absolute'
         >
-          {[...Array(5)].map((_, arr) => (
+          {[...Array(2)].map((_, arr) => (
             <div
               key={arr}
               className='flex
@@ -145,6 +140,131 @@ const HomePage = () => {
                     className='object-contain max-w-none'
                   />
                 </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      </section>
+      <section
+        className='px-4
+        sm:px-6
+        flex
+        justify-center
+        items-center
+        flex-col
+        relative
+      '
+      >
+        <div
+          className='w-[30%]
+          blur-[140px]
+          rounded-full
+          h-32
+          absolute
+          bg-brand-primaryPurple/30
+          -z-10
+          top-[30%]
+        '
+        ></div>
+        <TitleSection
+          pill='Features'
+          title='Keep track of your projects, tasks, team members and meetings, all in one place'
+          subheading='Capture your ideas, thoughts, and meeting notes in a structured and organized manner.'
+        />
+        <div
+          className='mt-10
+          max-w-[450px]
+          flex
+          justify-center
+          items-center
+          relative
+          sm:ml-0
+          rounded-2xl
+          border-8
+          border-washed-purple-300 
+          border-opacity-10
+        '
+        >
+          <Image src={Cal} alt='Banner' className='rounded-2xl' />
+        </div>
+      </section>
+      <section className='relative'>
+        <div
+          className='w-full
+          blur-[140px]
+          rounded-full
+          h-32
+          absolute
+          bg-brand-primaryPurple/40
+          -z-100
+          top-[120%]
+        '
+        />
+        <div
+          className='mt-20
+          px-4
+          sm:px-6 
+          flex
+          flex-col
+          overflow-x-hidden
+          overflow-visible
+        '
+        >
+          <TitleSection
+            title='Trusted by all'
+            subheading='Join thousands of satisfied users who rely on our platform for their 
+            personal and professional productivity needs.'
+            pill='Testimonials'
+          />
+          {[...Array(2)].map((_, index) => (
+            <div
+              key={randomUUID()}
+              className={twMerge(
+                clsx('mt-10 flex flex-nowrap gap-6 self-start', {
+                  'flex-row-reverse': index === 1,
+                  'animate-[slide_250s_linear_infinite]': true,
+                  'animate-[slide_250s_linear_infinite_reverse]': index === 1,
+                  'ml-[100vw]': index === 1,
+                }),
+                'hover:paused'
+              )}
+            >
+              {USERS.map((testimonial, index) => (
+                <CustomCard
+                  key={testimonial.name}
+                  className='w-[500px] md:w-[600px]
+               shrink-0
+               rounded-3
+               dark:bg-gradient-to-t
+               dark:from-border dark:to-background
+             '
+                  cardHeader={
+                    <div
+                      className='flex
+                   items-center
+                   gap-4
+               '
+                    >
+                      <Avatar>
+                        <AvatarImage src={`/avatars/${index + 1}.png`} />
+                        <AvatarFallback>AV</AvatarFallback>
+                      </Avatar>
+                      <div>
+                        <CardTitle className='text-foreground'>
+                          {testimonial.name}
+                        </CardTitle>
+                        <CardDescription className='dark:text-washed-purple-800'>
+                          {testimonial.name.toLocaleLowerCase()}
+                        </CardDescription>
+                      </div>
+                    </div>
+                  }
+                  cardContent={
+                    <p className='dark:text-washed-purple-800'>
+                      {testimonial.message}
+                    </p>
+                  }
+                ></CustomCard>
               ))}
             </div>
           ))}
