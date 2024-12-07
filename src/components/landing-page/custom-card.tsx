@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardContent, CardFooter, CardHeader } from '../ui/card';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent,  CardFooter } from '../ui/card';
 import { cn } from '../../lib/utils';
 
 type CardProps = React.ComponentProps<typeof Card>;
