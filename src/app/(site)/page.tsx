@@ -20,6 +20,7 @@ import {
   AvatarFallback,
 } from '../../components/ui/avatar';
 import { CardTitle, CardDescription } from '../../components/ui/card';
+import { cn } from '@/src/lib/utils';
 
 const HomePage = () => {
   return (
@@ -38,7 +39,7 @@ const HomePage = () => {
         <TitleSection
           pill='✨ Your Workspace, Perfected'
           title='All-In-One Collaboration and Productivity Platform'
-          subheading='Cypress is THE ultimate collaboration powerhouse for remote teams, freelancers, and solo developers. Designed to elevate project management and communication strategies, Cypress is transforming the way teams work together, making remote collaboration seamless and efficient.'
+          subheading='Cypress is THE ultimate collaboration powerhouse for remote teams, freelancers, and solo developers. Designed to elevate project management and communication strategies. Cypress is transforming the way teams work together, making remote collaboration seamless and efficient.'
         />
         <div
           className='bg-white
@@ -219,52 +220,39 @@ const HomePage = () => {
           {[...Array(2)].map((_, index) => (
             <div
               key={randomUUID()}
-              className={twMerge(
-                clsx('mt-10 flex flex-nowrap gap-6 self-start', {
+              className={cn(
+                'mt-10 flex flex-nowrap gap-6 self-start',
+                {
                   'flex-row-reverse': index === 1,
-                  'animate-[slide_250s_linear_infinite]': true,
-                  'animate-[slide_250s_linear_infinite_reverse]': index === 1,
+                  'animate-slide': index === 0,
+                  'animate-slide_reverse': index === 1,
                   'ml-[100vw]': index === 1,
-                }),
+                },
                 'hover:paused'
               )}
             >
               {USERS.map((testimonial, index) => (
                 <CustomCard
                   key={testimonial.name}
-                  className='w-[500px] md:w-[600px]
-               shrink-0
-               rounded-3
-               dark:bg-gradient-to-t
-               dark:from-border dark:to-background
-             '
+                  className="w-[500px] md:w-[600px] shrink-0 rounded-3 dark:bg-gradient-to-t dark:from-border dark:to-background"
                   cardHeader={
-                    <div
-                      className='flex
-                   items-center
-                   gap-4
-               '
-                    >
+                    <div className="flex items-center gap-4">
                       <Avatar>
                         <AvatarImage src={`/avatars/${index + 1}.png`} />
                         <AvatarFallback>AV</AvatarFallback>
                       </Avatar>
                       <div>
-                        <CardTitle className='text-foreground'>
-                          {testimonial.name}
-                        </CardTitle>
-                        <CardDescription className='dark:text-washed-purple-800'>
+                        <CardTitle className="text-foreground">{testimonial.name}</CardTitle>
+                        <CardDescription className="dark:text-washed-purple-800">
                           {testimonial.name.toLocaleLowerCase()}
                         </CardDescription>
                       </div>
                     </div>
                   }
                   cardContent={
-                    <p className='dark:text-washed-purple-800'>
-                      {testimonial.message}
-                    </p>
+                    <p className="dark:text-washed-purple-800">{testimonial.message}</p>
                   }
-                ></CustomCard>
+                />
               ))}
             </div>
           ))}
