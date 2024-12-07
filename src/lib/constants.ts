@@ -1,8 +1,8 @@
-import client1 from '../../public/client1.png';
-import client2 from '../../public/client2.png';
-import client3 from '../../public/client3.png';
-import client4 from '../../public/client4.png';
-import client5 from '../../public/client5.png';
+import client1 from '@/public/client1.png';
+import client2 from '@/public/client2.png';
+import client3 from '@/public/client3.png';
+import client4 from '@/public/client4.png';
+import client5 from '@/public/client5.png';
 
 export const CLIENTS = [
   { alt: 'client1', logo: client1 },
@@ -14,12 +14,12 @@ export const CLIENTS = [
 
 export const USERS = [
     {
-      name: 'Alice',
+      name: 'Aaron',
       message:
         'Cypress has been a game-changer for our team. With its reliable end-to-end testing, we catch bugs early, leading to faster development cycles and improved collaboration.',
     },
     {
-      name: 'Bob',
+      name: 'Alice',
       message:
         "I used to spend hours debugging frontend issues, but Cypress simplified everything. Now, I'm more productive, and my colleagues can trust our code thanks to Cypress.",
     },
@@ -114,12 +114,11 @@ export const USERS = [
     {
       planType: 'Free Plan',
       price: '0',
-      description: 'Limited block trials  for teams',
+      description: 'Limited block trials for teams',
       highlightFeature: '',
       freatures: [
-        'Unlimited blocks for teams',
         'Unlimited file uploads',
-        '30 day page history',
+        '30-day page history',
         'Invite 2 guests',
       ],
     },
