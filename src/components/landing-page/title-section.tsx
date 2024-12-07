@@ -19,10 +19,10 @@ export const TitleSection: React.FC<TitleSectionProps> = ({
         </article>
         {subheading ? (
           <>
-            <h2 className='dark:text-brand-white text-left text-3xl sm:text-5xl sm:max-w-[750px] md:text-center font-semibold'>
+            <h2 className='dark:text-brand-white text-left text-3xl sm:text-5xl sm:max-w-[750px] md:text-center font-semibold mt-4'>
               {title}
             </h2>
-            <p className='dark:text-washed-purple-400 sm:max-w-[450px] md:text-center'>
+            <p className='dark:text-washed-purple-400 sm:max-w-[450px] md:text-center mt-4'>
               {subheading}
             </p>
           </>
